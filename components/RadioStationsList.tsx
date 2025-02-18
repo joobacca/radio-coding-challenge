@@ -9,9 +9,8 @@ const SingleRadioStation = ({ station }: { station: RadioStation }) => {
         {station.logo300x300 && (
           <img src={station.logo300x300} alt={`${station.name} Logo`} />
         )}
-        <div>
-          <p className="font-bold">{station.name}</p>
-          <p className="text-sm"></p>
+        <div className="py-1">
+          <p className="font-bold hover:underline">{station.name}</p>
         </div>
       </div>
     </Link>
@@ -22,7 +21,7 @@ function RadioStationsList({
   radioStations,
 }: PropsWithChildren<{ radioStations: RadioStation[] }>) {
   return (
-    <div className="grid grid-cols-3 gap-4 lg:grid-cols-6 p-2">
+    <div className="grid grid-cols-3 gap-4 lg:grid-cols-5 p-2">
       {radioStations.map(el => (
         <SingleRadioStation key={el.id} station={el} />
       ))}
