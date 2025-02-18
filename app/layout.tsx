@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Logo from "@/components/ui/Logo";
-import SearchButton from "@/components/SearchButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +31,6 @@ export default function RootLayout({
         <header>
           <div className="flex justify-between p-2 max-w-xl lg:max-w-4xl mx-auto container">
             <Logo />
-            <SearchButton />
           </div>
         </header>
         <main>{children}</main>
