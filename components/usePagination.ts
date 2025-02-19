@@ -17,6 +17,8 @@ function usePagination(array: Array<unknown>, amountPerPage = 10) {
     setCurrentPage(newPage);
   };
 
+  const reset = () => setCurrentPage(0)
+
   useEffect(() => {
     setCurrentPage(0);
   }, [amountPerPage]);
@@ -27,6 +29,7 @@ function usePagination(array: Array<unknown>, amountPerPage = 10) {
     previous,
     next,
     hasNext,
+    reset,
   };
 }
 

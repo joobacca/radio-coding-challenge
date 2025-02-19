@@ -21,10 +21,8 @@ function RadioStationsList({ stations }: { stations: RadioStation[] }) {
     useRadioStationFilter(stations);
 
   const [amount, setAmount] = useState(10);
-  const { currentPage, previous, next, hasNext, hasPrevious } = usePagination(
-    stations,
-    amount,
-  );
+  const { currentPage, previous, next, hasNext, hasPrevious, reset } =
+    usePagination(stations, amount);
 
   return (
     <div>
@@ -32,7 +30,10 @@ function RadioStationsList({ stations }: { stations: RadioStation[] }) {
         <div className="w-64 p-4">
           <Input
             value={filterValue}
-            onChange={e => setFilterValue(e.target.value)}
+            onChange={e => {
+              reset();
+              setFilterValue(e.target.value);
+            }}
             placeholder="Type to search..."
           />
         </div>
