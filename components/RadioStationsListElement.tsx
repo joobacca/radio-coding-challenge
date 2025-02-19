@@ -8,12 +8,12 @@ const SingleRadioStation = ({ station }: { station: RadioStation }) => {
         {station.logo300x300 && (
           <img src={station.logo300x300} alt={`${station.name} Logo`} />
         )}
-        <div className="py-1">
-          <p className="font-bold hover:underline">{station.name}</p>
+        <div className="py-1 px-0.5">
+          <p className="font-bold hover:underline text-sm">{station.name}</p>
         </div>
       </div>
     </Link>
   );
 };
 
-export default SingleRadioStation
+export default SingleRadioStation;

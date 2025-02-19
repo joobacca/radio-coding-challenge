@@ -7,14 +7,18 @@ import SingleRadioStation from "./RadioStationsListElement";
 function RadioStationsList({ stations }: { stations: RadioStation[] }) {
   const [textFilter, setTextFilter] = useState<string>("");
 
-  const filteredStations = stations.filter(({ name }) =>
-    name.toLowerCase().includes(textFilter.toLowerCase()),
+  const filteredStations = stations.filter(
+    ({ name, genres }) =>
+      name.toLowerCase().includes(textFilter.toLowerCase()) ||
+      genres?.some(genre =>
+        genre.toLowerCase().includes(textFilter.toLowerCase()),
+      ),
   );
 
   return (
     <div>
       <div className="flex my-2">
-        <div className="w-64">
+        <div className="w-64 p-4">
           <Input
             value={textFilter}
             onChange={e => setTextFilter(e.target.value)}
