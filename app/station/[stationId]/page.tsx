@@ -17,7 +17,7 @@ export default async function StationDetailsPage({
   const { stationId } = await params;
   const [details] = await getStationDetails(stationId);
   return (
-    <div className="max-w-xl lg:max-w-4xl mx-auto pt-16 min-h-screen">
+    <div className="max-w-xl lg:max-w-4xl mx-auto p-2 sm:pt-16 min-h-screen">
       <RadioStationDetails details={details} />
     </div>
   );

@@ -1,6 +1,7 @@
-import React, { PropsWithChildren } from "react";
-import { RadioStation } from "../types/RadioStation";
+import React from "react";
+import { RadioStation, radioStationSchema } from "../types/RadioStation";
 import Link from "next/link";
+import { z } from "zod";
 
 const SingleRadioStation = ({ station }: { station: RadioStation }) => {
   return (
@@ -17,12 +18,23 @@ const SingleRadioStation = ({ station }: { station: RadioStation }) => {
   );
 };
 
-function RadioStationsList({
-  radioStations,
-}: PropsWithChildren<{ radioStations: RadioStation[] }>) {
+const radioApiResponseSchema = z.object({
+  playables: z.array(radioStationSchema)
+})
+
+const getTopRadioStations = async () => {
+  const response = await fetch('https://prod.radio-api.net/stations/list-by-system-name?systemName=STATIONS_TOP&count=100')
+  const body = await response.json()
+  const data = await radioApiResponseSchema.parse(body);
+  return data.playables;
+};
+
+async function RadioStationsList() {
+  const stations = await getTopRadioStations();
+
   return (
     <div className="grid grid-cols-3 gap-4 lg:grid-cols-5 p-2">
-      {radioStations.map(el => (
+      {stations.map(el => (
         <SingleRadioStation key={el.id} station={el} />
       ))}
     </div>
