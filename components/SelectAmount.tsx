@@ -45,7 +45,7 @@ export function SelectAmount({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[100px] justify-between"
+          className="w-full justify-between"
         >
           {value
             ? options.find(option => option.value === value)?.label
@@ -53,7 +53,7 @@ export function SelectAmount({
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[100px] p-0">
+      <PopoverContent className="w-full p-0">
         <Command>
           <CommandList>
             <CommandGroup>

@@ -1,8 +1,10 @@
+
 import { Badge } from "@/components/ui/badge";
 import type { RadioStationDetails } from "@/types/RadioStation";
 import { LinkIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import AudioPlayer from "./AudioPlayer";
 
 function BadgesList({ badges }: { badges?: string[] }) {
   if (!badges || badges.length == 0) return;
@@ -39,6 +41,11 @@ function RadioStationDetails({ details }: { details: RadioStationDetails }) {
               </Link>
             </div>
             <BadgesList badges={details.genres} />
+          </div>
+          <div>
+            {details.streams.map(({ url }) => (
+              <AudioPlayer key={url} url={url} />
+            ))}
           </div>
         </div>
       </div>

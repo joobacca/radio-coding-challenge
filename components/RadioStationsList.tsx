@@ -44,8 +44,8 @@ function RadioStationsList({ stations }: { stations: RadioStation[] }) {
             <SingleRadioStation key={el.id} station={el} />
           ))}
       </div>
-      <div className="mt-4">
-        <div className="absolute w-36">
+      <div className="mt-4 p-2">
+        <div className="absolute w-min">
           <SelectAmount value={amount} setValue={setAmount} />
         </div>
         <Pagination>
