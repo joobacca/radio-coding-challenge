@@ -10,7 +10,6 @@ type AudioStreamProps = {
 function AudioPlayer({ url }: AudioStreamProps) {
   return (
     <BaseReactPlayer
-      key={url}
       url={url}
       controls
       playing

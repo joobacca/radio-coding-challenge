@@ -1,24 +1,10 @@
-
-import { Badge } from "@/components/ui/badge";
+"use client";
 import type { RadioStationDetails } from "@/types/RadioStation";
 import { LinkIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import AudioPlayer from "./AudioPlayer";
-
-function BadgesList({ badges }: { badges?: string[] }) {
-  if (!badges || badges.length == 0) return;
-
-  return (
-    <div className="text-sm gap-1 flex flex-wrap">
-      {badges.slice(0, 3).map(genre => (
-        <Badge variant="outline" key={genre}>
-          {genre}
-        </Badge>
-      ))}
-    </div>
-  );
-}
+import BadgesList from "./BadgesList";
 
 function RadioStationDetails({ details }: { details: RadioStationDetails }) {
   return (
