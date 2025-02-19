@@ -19,16 +19,18 @@ function RadioStationDetails({ details }: { details: RadioStationDetails }) {
           <div className="flex-grow">
             <h1 className="text-4xl font-bold mb-4">{details.name}</h1>
             <p>{details.shortDescription}</p>
-            <div className="text-sm gap-1 mt-4 flex flex-wrap">
-              {details.genres?.slice(0, 3).map(genre => (
-                <Badge variant="outline" key={genre}>
-                  {genre}
-                </Badge>
-              ))}
+            <div className="flex items-center gap-2">
+              <div className="mx-2"><Link href={details.homepageUrl} passHref target="__blank">
+                <LinkIcon />
+              </Link></div>
+              <div className="text-sm gap-1 my-4 flex flex-wrap">
+                {details.genres?.slice(0, 3).map(genre => (
+                  <Badge variant="outline" key={genre}>
+                    {genre}
+                  </Badge>
+                ))}
+              </div>
             </div>
-            <Link href={details.homepageUrl} passHref target="__blank">
-              <LinkIcon />
-            </Link>
           </div>
         </div>
       </section>
