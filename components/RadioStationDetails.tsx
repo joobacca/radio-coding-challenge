@@ -22,14 +22,14 @@ function RadioStationDetails({ details }: { details: RadioStationDetails }) {
   return (
     <section>
       <div className="block sm:flex gap-4 items-end">
-        <div>
+        <div className="p-4">
           <img
             src={details.logo300x300}
             alt={"Logo"}
-            className="max-w-48 bg-neutral-800 p-4"
+            className="max-w-48 mx-auto bg-neutral-800 p-4"
           />
         </div>
-        <div className="flex-grow">
+        <div className="flex-grow p-4">
           <h1 className="text-4xl font-bold mb-4">{details.name}</h1>
           <p>{details.shortDescription}</p>
           <div className="pt-2 flex items-center gap-2">
