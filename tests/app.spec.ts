@@ -14,3 +14,10 @@ test('get started link', async ({ page }) => {
   await expect(page).toHaveURL("http://localhost:3000/station/cnnnews")
   await expect(page.locator("h1")).toContainText("CNN")
 });
+
+test('logo will route to home', async ({ page }) => {
+  await page.goto('http://localhost:3000/station/msnbc');
+
+  await page.getByLabel("Radio Logo").click();
+  await expect(page).toHaveURL("http://localhost:3000/")
+})
