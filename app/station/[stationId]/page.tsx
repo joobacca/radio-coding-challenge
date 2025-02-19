@@ -1,5 +1,5 @@
 import { radioStationDetailsSchema } from "@/types/RadioStation";
-import RadioStationDetails from "./RadioStationDetails";
+import RadioStationDetails from "@/components/RadioStationDetails";
 
 const getStationDetails = async (id: string) => {
   const request = await fetch(

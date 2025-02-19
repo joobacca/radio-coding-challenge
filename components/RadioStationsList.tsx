@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const SingleRadioStation = ({ station }: { station: RadioStation }) => {
   return (
-    <Link href={`/station/${station.id}`}>
+    <Link rel="link" href={`/station/${station.id}`}>
       <div className="p-1">
         {station.logo300x300 && (
           <img src={station.logo300x300} alt={`${station.name} Logo`} />
